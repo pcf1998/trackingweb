@@ -53,24 +53,17 @@ router.addUser = (req, res) => {
     // the requested value
     user.userName = req.body.userName;
     user.userPassword = req.body.userPassword;
-    //user.status = req.body.status;
-
-    //user.department = req.body.department;
-    //user.position = req.body.position;
-
     user.email = req.body.email;
     user.mobilePhone = req.body.mobilePhone;
+    user.gender = req.body.gender;
+    user.dateOfBirth = req.body.dateOfBirth;
+
+
     user.fax = req.body.userName + "'s fax";
     user.telephone = req.body.userName + "'s telephone";
     user.adderss = req.body.userName + "'s address";
 
-    user.gender = req.body.gender;
-    user.dateOfBirth = req.body.dateOfBirth;
-
     user.age = getAge(user.dateOfBirth);
-
-    //user.educationalDegree = req.body.educationalDegree;
-    //user.maritalStatus = req.body.maritalStatus;
 
     user.entryDate = sd.format(new Date(), 'YYYY-MM-DD');
     user.yearsOfWork = getAge(user.entryDate);
@@ -80,9 +73,14 @@ router.addUser = (req, res) => {
         if (err)
             return res.json({message: "User NOT Successfully Added!", errmsg: err});
         // return a suitable error message
-        else
-            return res.json({message: 'User Successfully Added!', data: user});
-        // return a suitable success message
+        else {
+            User.findById(user._id, function (err, user) {
+                if (err)
+                    return res.json({message: "User NOT Successfully Added after saved!", errmsg: err});
+                else
+                    return res.json({message: 'User Successfully Added!', data: user});
+            });
+        }
     });
 };
 
@@ -133,10 +131,17 @@ router.updateUserPassword = (req, res) => {
             user.save(function (err) {
                 if (err)
                     return res.json({message: "user Password NOT Successfully Updated!", errmsg: err});
-                // return a error message
-                else
-                    return res.json({message: 'user Password name Successfully Updated!', data: user});
-                // return a success message
+                else {
+                    User.findById(user._id, function (err, user) {
+                        if (err)
+                            return res.json({
+                                message: "User password NOT Successfully Updated after saved!",
+                                errmsg: err
+                            });
+                        else
+                            return res.json({message: 'User password Successfully Updated!', data: user});
+                    });
+                }
             })
         }
     });
@@ -507,7 +512,7 @@ router.updateEntryDate = (req, res) => {
 };
 
 //update Leave
-router.updateLeaveDate = (req, res) => {
+router.updateLeave = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     User.findById(req.params.userID, function (err, user) {

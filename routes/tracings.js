@@ -1,4 +1,4 @@
-let express = require('express');
+var express = require('express');
 let Tracing = require('../models/tracings');
 let sd = require('silly-datetime');
 
@@ -273,6 +273,9 @@ router.deleteStage = (req, res) => {
 
                         //update stageNum
                         tracing.stagesNum = tracing.stagesNum - 1;
+                        if (tracing.stagesNum < 0) {
+                            tracing.stagesNum = 0;
+                        }
 
                         //update last modified time
                         tracing.lastModifiedTime = sd.format(new Date(), 'YYYY-MM-DD HH:mm:ss');

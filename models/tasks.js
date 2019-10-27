@@ -10,6 +10,7 @@ let TaskSchema = new mongoose.Schema({
         lastModifiedTime: String,
 
         projectID: {type: Schema.Types.ObjectId, ref: 'Tracing'},
+        teamID: {type: Schema.Types.ObjectId, ref: 'Team'},
 
         membersID: {type: Schema.Types.ObjectId, ref: 'User'},
     },

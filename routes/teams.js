@@ -1,6 +1,6 @@
 var express = require('express');
-let Team = require('../models/teams');
 let Tracing = require('../models/tracings');
+let Team = require('../models/teams');
 let sd = require('silly-datetime');
 
 var router = express.Router();
@@ -292,7 +292,7 @@ router.deleteTeam = (req, res) => {
                     if (err)
                         return res.json({message: "team NOT Successfully Deleted!", errmsg: err});
                     else {
-                        tracing.teamsID.splice(tracing.teamsID.contains(req.params.teamID), 1);
+                        tracing.teamsID.remove(req.params.teamID);
                         tracing.teamsNum = tracing.teamsNum - 1;
                         if (tracing.teamsNum < 0) {
                             tracing.teamsNum = 0;
@@ -337,7 +337,7 @@ router.deleteTeamMemberID = (req, res) => {
                         if (team == null) {
                             return res.json({message: "team NOT Found!"});
                         } else {
-                            team.teamMembersID.splice(team.teamMembersID.contains(req.params.teamMemberID), 1);
+                            team.teamMembersID.remove(req.params.teamMemberID);
                             team.memberNum = team.memberNum - 1;
                             if (team.memberNum < 0) {
                                 team.memberNum = 0;
