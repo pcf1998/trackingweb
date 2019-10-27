@@ -1,7 +1,8 @@
 # trackingweb
 ##Student Name: Chengfeng Pan
 ##Student Number: 20086418
-github project: https://github.com/pcf1998/trackingweb-1.0.git  
+github project: https://github.com/pcf1998/trackingweb.git  
+  
 YouTube ：https://youtu.be/mDb9bpIo7l4
 
 For now, there are four models with Schema and related to each other.  
