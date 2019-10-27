@@ -1,5 +1,8 @@
 # trackingweb
-https://github.com/pcf1998/trackingweb-1.0.git  
+##Student Name: Chengfeng Pan
+##Student Number: 20086418
+github project: https://github.com/pcf1998/trackingweb-1.0.git  
+YouTube ：https://youtu.be/mDb9bpIo7l4
 
 For now, there are four models with Schema and related to each other.  
 In users table of the database, the password created by the user will be stored into the user table when it has been encrypted more than 10 times. It will be very safe to store the user data.  
@@ -83,4 +86,11 @@ the req.params.whichStageToDelete must be a legal number
 * '/tracings/:projectID/teams/:teamID'  
 * '/tracings/:projectID/teams/:teamID/teamMembersID/:teamMemberID'
 
+
+###reference
+1. How to write automated tests for APIs using Postman - Part 1 - Postman Blog Postman Blog. (2014). How to write automated tests for APIs using Postman - Part 1 - Postman Blog. [online] Available at: https://blog.getpostman.com/2014/03/07/writing-automated-tests-for-apis-using-postman/ [Accessed 27 Oct. 2019].  
+2. nodejs中使用bcrypt加密 - o_heart - CSDN博客 Blog.csdn.net. (2019). nodejs中使用bcrypt加密 - o_heart - CSDN博客. [online] Available at: https://blog.csdn.net/original_heart/article/details/78538908 [Accessed 27 Oct. 2019].
+3. Error), M. and sharma, H. Error), M. and sharma, H. (2016). Mongoose: Remove object from array based on ID (Cast Error). [online] Stack Overflow. Available at: https://stackoverflow.com/questions/35973960/mongoose-remove-object-from-array-based-on-id-cast-error [Accessed 27 Oct. 2019].  
+4. Connect via Compass — MongoDB Atlas Docs.atlas.mongodb.com. (2019). Connect via Compass — MongoDB Atlas. [online] Available at: https://docs.atlas.mongodb.com/compass-connection/ [Accessed 27 Oct. 2019].  
+5. body, E. body, E. (2014). Empty response body. [online] Stack Overflow. Available at: https://stackoverflow.com/questions/26797196/empty-response-body [Accessed 27 Oct. 2019].  
 
